@@ -1,19 +1,11 @@
-word = "tired"
+import random
+
+possible_words= ["tired","water","brown","broke","truck","crash","brass","child","puppy","green","apple","mango"]
+word = random.choice(possible_words)
 
 green = '\033[92m'
 yellow = '\033[33m'
 default = '\033[0m'
-
-def guesses():
-    guess = ''
-    for i in range(6):
-        guess = input("What is your guess?:")
-        if guess == word:
-            print("You got it!")
-            break
-        print(hint(guess))
-
-guesses()
 
 def hint(guess):
 
@@ -29,5 +21,18 @@ def hint(guess):
             color = default
         hint = hint + color + guess[i]+ default
 
-    return guess
+    return hint
+
+def guesses():
+    guess = ''
+    for i in range(6):
+        guess = input("What is your guess?:")
+        if guess == word:
+            print("You got it!")
+            break
+        else:
+            print(hint(guess))
+
+guesses()
+
 
